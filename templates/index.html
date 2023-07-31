@@ -1,2 +1,68 @@
-<h1>Welcome To Astha Data Science Project Session</h1>
-<h2>Zomato Delivery Time Prediction</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome To Anil Kamat Data Science Project End To End Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #F2F2F2;
+    }
+    h1 {
+      color: #337AB7;
+      margin-bottom: 10px;
+    }
+    h2 {
+      color: #FF5733;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome To Anil Kamat End To End ML project</h1>
+  <h2>Zomato Delivery Time Prediction</h2>
+  <p>To predict order delivery time</p>
+  <button id="nextButton">Go to Next Page</button>
+
+  <script>
+    // Add a click event listener to the 'nextButton'
+    document.getElementById('nextButton').addEventListener('click', function() {
+      // Manipulate the URL to get the URL of the next page
+      var currentPageURL = window.location.href;
+      var nextPageName = 'next-page'; // Replace this with the name of the next page
+      var nextPageURL = currentPageURL + '/' + 'predict';
+
+      // Navigate to the next page
+      window.location.href = nextPageURL;
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

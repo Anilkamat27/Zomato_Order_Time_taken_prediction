@@ -1,3 +1,0 @@
-[ 2023-04-22 12:40:10,165 ] 224 werkzeug - WARNING -  * Debugger is active!
-[ 2023-04-22 12:40:10,166 ] 224 werkzeug - INFO -  * Debugger PIN: 123-341-949
-[ 2023-04-22 12:41:44,880 ] 224 werkzeug - INFO -  * Detected change in '/config/workspace/app.py', reloading

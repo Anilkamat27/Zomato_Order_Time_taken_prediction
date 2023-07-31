@@ -3,8 +3,6 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression, Ridge,Lasso,ElasticNet
 from src.exception import CustomException
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.tree import DecisionTreeRegressor
 from src.logger import logging
 
 from src.utils import save_object
@@ -37,8 +35,6 @@ class ModelTrainer:
                 'Lasso':Lasso(),
                 'Ridge':Ridge(),
                 'ElasticNet':ElasticNet(),
-                'RandomForestRegressor':RandomForestRegressor(),
-                'DecisionTreeRegressor' : DecisionTreeRegressor()
             }
 
             model_report:dict=evaluate_model(X_train, y_train, X_test, y_test, models)

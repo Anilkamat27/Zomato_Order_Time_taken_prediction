@@ -31,8 +31,13 @@ class DataTransformation:
             logging.info('Data Transformation initiated')
 
             #Define which columns should be ordinal-encoded and which should be scaled
-            categorical_cols = ['Weather_conditions','Road_traffic_density', 'Type_of_vehicle', 'Festival', 'City']
-            numerical_cols=['Delivery_person_Age', 'Delivery_person_Ratings','Vehicle_condition', 'multiple_deliveries', 'distance']
+            categorical_cols=['Weather_conditions', 'Road_traffic_density', 'Type_of_vehicle',
+            'Festival', 'City']
+            numerical_cols = ['Delivery_person_Age', 'Delivery_person_Ratings', 'Restaurant_latitude',
+       'Restaurant_longitude', 'Delivery_location_latitude',
+       'Delivery_location_longitude', 'Distance', 'Vehicle_condition',
+       'multiple_deliveries', 'Order_prepare_time', 'Order_Day', 'Order_Month',
+       'Order_Year', 'Order_Hour', 'Order_Min', 'Picked_Hour', 'Picked_Min']
 
             #Define the custom ranking for each ordinal variable
             Weather_conditions_Map=["Sunny","Stormy","Sandstorms","Windy","Fog","Cloudy"]
@@ -90,22 +95,21 @@ class DataTransformation:
             logging.info('Read train and test data completed')
 
             # Calculate the distance between each pair of points
-            train_df['distance'] = np.nan
-            test_df['distance'] = np.nan
-
-            for i in range(len(train_df)):
-                train_df.loc[i, 'distance'] = distcalculate(train_df.loc[i, 'Restaurant_latitude'], 
-                                        train_df.loc[i, 'Restaurant_longitude'], 
-                                        train_df.loc[i, 'Delivery_location_latitude'], 
-                                        train_df.loc[i, 'Delivery_location_longitude'])
-            for i in range(len(test_df)):
-                test_df.loc[i, 'distance'] = distcalculate(test_df.loc[i, 'Restaurant_latitude'], 
-                                        test_df.loc[i, 'Restaurant_longitude'], 
-                                        test_df.loc[i, 'Delivery_location_latitude'], 
-                                        test_df.loc[i, 'Delivery_location_longitude'])
+#            train_df['distance'] = np.nan
+#           test_df['distance'] = np.nan
+#
+ #           for i in range(len(train_df)):
+  #              train_df.loc[i, 'distance'] = distcalculate(train_df.loc[i, 'Restaurant_latitude'], 
+   #                                     train_df.loc[i, 'Restaurant_longitude'], 
+    #                                    train_df.loc[i, 'Delivery_location_latitude'], 
+      #                                  train_df.loc[i, 'Delivery_location_longitude'])
+     #       for i in range(len(test_df)):
+       #         test_df.loc[i, 'distance'] = distcalculate(test_df.loc[i, 'Restaurant_latitude'], 
+        #                                test_df.loc[i, 'Restaurant_longitude'], 
+         #                               test_df.loc[i, 'Delivery_location_latitude'], 
+          #                              test_df.loc[i, 'Delivery_location_longitude'])
             
-            
-            logging.info('Calculating distance completed')
+        
             logging.info(f'Train Dataframe Head : \n{train_df.head().to_string()}')
             logging.info(f'Test Dataframe Head : \n{test_df.head().to_string()}')
 
@@ -113,8 +117,8 @@ class DataTransformation:
 
             preprocessing_obj = self.get_data_transformation_object()
 
-            target_column_name = 'Time_taken (min)'
-            drop_columns=[target_column_name,'ID','Delivery_person_ID','Restaurant_latitude','Restaurant_longitude','Delivery_location_latitude','Delivery_location_longitude','Order_Date','Time_Orderd','Time_Order_picked','Type_of_order']
+            target_column_name = 'Time_taken'
+            drop_columns=[target_column_name]
 
             input_feature_train_df = train_df.drop(columns=drop_columns,axis=1)
             target_feature_train_df=train_df[target_column_name]

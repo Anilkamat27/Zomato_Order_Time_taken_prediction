@@ -1,40 +1,63 @@
+<!DOCTYPE html>
 <html>
-<body>
-<form action="{{url_for('predict_datapoint')}}" method="POST">
+<head>
+  <title>Zomato Delivery Time Prediction</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+
+  <h1 style="color: #FF5733;">Zomato Delivery Time Prediction</h1>
+  <br><br>
+  <h1 style="color: #337AB7;">{{final_result}}</h1>
+
+  <form action="{{url_for('predict_datapoint')}}" method="POST" style="max-width: 500px; margin: 0 auto;">
     <div class="form-group">
         <label for="Delivery_person_Age">Delivery_person_Age:</label>
         <input type="text" id="Delivery_person_Age" name="Delivery_person_Age" placeholder="Enter Delivery_person_Age (float)">
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 10px;">
         <label for="Delivery_person_Ratings">Delivery_person_Ratings:</label>
         <input type="text" id="Delivery_person_Ratings" name="Delivery_person_Ratings" placeholder="Enter Delivery_person_Ratings range 1 to 5(float)">
     </div>
 
    
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 10px;">
         <label for="Restaurant_latitude">Restaurant_latitude:</label>
         <input type="Restaurant_latitude" id="Restaurant_latitude" name="Restaurant_latitude" placeholder="Enter Restaurant_latitude (float)">
     </div>
   
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 10px;">
         <label for="Restaurant_longitude">Restaurant_longitude:</label>
         <input type="Restaurant_longitude" id="Restaurant_longitude" name="Restaurant_longitude" placeholder="Enter Restaurant_longitude (float)">
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 10px;">
         <label for="Delivery_location_latitude">Delivery_location_latitude:</label>
         <input type="Delivery_location_latitude" id="Delivery_location_latitude" name="Delivery_location_latitude" placeholder="Enter Delivery_location_latitude(float)">
     </div>
   
-    <div class="form-group">
+    <div class="form-group" style="margin-bottom: 10px;">
         <label for="Delivery_location_longitude">Delivery_location_longitude:</label>
         <input type="Delivery_location_longitude" id="Delivery_location_longitude" name="Delivery_location_longitude" placeholder="Enter Delivery_location_longitude(float)">
     </div>
+    
+    <div class="form-group" style="margin-bottom: 10px;">
+        <label for="Order_Date">Order_Date:</label>
+        <input type="Order_Date" id="Order_Date" name="Order_Date" placeholder="Enter Order_Date(fdd-mm-yyyy)">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 10px;">
+      <label for="Time_Orderd">Time_Orderd:</label>
+      <input type="Time_Orderd" id="Time_Orderd" name="Time_Orderd" placeholder="Enter Time_Orderd(Hour:min)">
+    </div>
   
-          
+    <div class="form-group" style="margin-bottom: 10px;">
+    <label for="Time_Order_picked">Time_Order_picked:</label>
+    <input type="Time_Order_picked" id="Time_Order_picked" name="Time_Order_picked" placeholder="Enter Time_Order_picked(Hour:min)">
+    </div>  
   
-<div class="form-group">
+
+<div class="form-group" style="margin-bottom: 10px;">
   <label for="Weather_conditions">Weather_conditions:</label>
   <select id="Weather_conditions" name="Weather_conditions">
     <option value="Sunny">Sunny</option>
@@ -46,7 +69,7 @@
   </select>
 </div>
   
-<div class="form-group">
+<div class="form-group" style="margin-bottom: 10px;">
   <label for="Road_traffic_density">Road_traffic_density:</label>
   <select id="Road_traffic_density" name="Road_traffic_density">
     <option value="Low">Low</option>
@@ -56,7 +79,7 @@
   </select>
 </div>
 
-<div class="form-group">
+<div class="form-group" style="margin-bottom: 10px;">
   <label for="Type_of_vehicle">Type_of_vehicle:</label>
   <select id="Type_of_vehicle" name="Type_of_vehicle">
     <option value="bicycle">bicycle</option>
@@ -66,7 +89,7 @@
   </select>
 </div>
 
-<div class="form-group">
+<div class="form-group" style="margin-bottom: 10px;">
     <label for="Festival">Festival:</label>
     <select id="Festival" name="Festival">
       <option value="No">No</option>
@@ -74,7 +97,7 @@
     </select>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="margin-bottom: 10px;">
     <label for="City">City:</label>
     <select id="City" name="City">
       <option value="Urban">Urban</option>
@@ -83,7 +106,7 @@
     </select>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="margin-bottom: 10px;">
     <label for="multiple_deliveries">multiple_deliveries:</label>
     <select id="multiple_deliveries" name="multiple_deliveries">
       <option value="0">0</option>
@@ -92,7 +115,7 @@
       <option value="3">3</option>
     </select>
   </div>
-  <div class="form-group">
+  <div class="form-group" style="margin-bottom: 10px;">
     <label for="Vehicle_condition">Vehicle_condition:</label>
     <select id="Vehicle_condition" name="Vehicle_condition">
       <option value="0">0</option>
@@ -102,8 +125,9 @@
     </select>
   </div>
 
-<div style="clear:both;"></div>
-  <input type="submit" value="Submit">
+  <div style="clear:both;"></div>
+  <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+</form>
 </form>
 </body>
 </html>

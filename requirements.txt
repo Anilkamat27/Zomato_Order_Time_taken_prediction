@@ -3,6 +3,5 @@ pandas
 flask
 ipykernel
 scikit-learn
-seaborn
 geopy
 -e .
